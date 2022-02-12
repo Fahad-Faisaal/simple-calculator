@@ -29,13 +29,28 @@ calculatorKeys.addEventListener('click', function(e) {
   }
 
   // display for operators
-  // if (type === 'operator'){
-    
-  // }
+  if (type === 'operator'){
+    const opsKeys = document.querySelectorAll('.btn-ops');
+    opsKeys.forEach(el => el.dataset.state = '')
+    currKey.dataset.state = 'selected';
+
+    // storing first number and operator type
+    calculator.dataset.firstNumber = displayValue;
+    calculator.dataset.operator = currKey.dataset.key;
+  }
 
   // perform calculation if equal pressed
   if (type === 'equal') {
-    
+    const {firstNumber} = calculator.dataset
+    const secondNumber = displayValue;
+    const {operator} = calculator.dataset
+
+    let result;
+    if (operator === 'plus') result = +firstNumber + +secondNumber;
+    if (operator === 'minus') result = +firstNumber - +secondNumber;
+    if (operator === 'multiply') result = +firstNumber * +secondNumber;
+    if (operator === 'divide') result = +firstNumber / +secondNumber;
+    console.log(result);
   }
   calculator.dataset.prevKeyType = type;
 })
