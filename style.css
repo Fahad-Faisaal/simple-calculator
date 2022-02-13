@@ -22,8 +22,8 @@ body {
 .calculator {
   display: flex;
   flex-direction: column;
-  /* transform: scale(1.35); */
-  width: 40vh;
+  transform: scale(1.35);
+  /* width: 40vh; */
 }
 
 .calculator-display {
