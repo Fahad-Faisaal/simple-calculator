@@ -45,15 +45,22 @@ calculatorKeys.addEventListener('click', function(e) {
     const secondNumber = displayValue;
     const {operator} = calculator.dataset
 
-    let result;
-    if (operator === 'plus') result = +firstNumber + +secondNumber;
-    if (operator === 'minus') result = +firstNumber - +secondNumber;
-    if (operator === 'multiply') result = +firstNumber * +secondNumber;
-    if (operator === 'divide') result = +firstNumber / +secondNumber;
-    console.log(result);
+    // let result;
+    // if (operator === 'plus') result = +firstNumber + +secondNumber;
+    // if (operator === 'minus') result = +firstNumber - +secondNumber;
+    // if (operator === 'multiply') result = +firstNumber * +secondNumber;
+    // if (operator === 'divide') result = +firstNumber / +secondNumber;
+    display.textContent = calculation(operator, firstNumber, secondNumber);
   }
   calculator.dataset.prevKeyType = type;
 })
+
+function calculation (operator, firstNumber, secondNumber) {
+  if (operator === 'plus') return +firstNumber + +secondNumber;
+  if (operator === 'minus') return +firstNumber - +secondNumber;
+  if (operator === 'multiply') return +firstNumber * +secondNumber;
+  if (operator === 'divide') return +firstNumber / +secondNumber;
+}
 
 
 
